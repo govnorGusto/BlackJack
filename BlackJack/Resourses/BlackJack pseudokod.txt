@@ -1,0 +1,31 @@
+BlackJack Psuedukod.
+
+Card class
+Deck class
+Hand class
+
+Steg 1:
+
+Spelaren väljer hur mycket hen vill statsa.
+När spelaren klickar på Bet, kontroll av hur mkt pengar som finns kontra satsningen.
+Spelarens vad dras av dennes pengar.
+OM detta stämmer - gå till steg 2
+
+
+Steg 2:
+
+Spelaren och Dealern får 2 kort vardera, varav ett av dealerns är okännt för spelaren. (förbättring: ge ut varannat kort).
+Nu kan spelaren väla Hit eller Stand, och ska inte kunna välja Bet.	(Split-func i ett ev senate läge)
+Detta steg förtsätter tills spelaren blir "tjock" eller väler att stanna, Stand.
+
+Steg 3:
+
+Om spelaren väljer stand, så går spelet till detta steg.
+Dealens okända kort avslöjas och dealern drar kort till denne har 17+ poäng, sedan jämnförs spelarens och dealerns poäng.
+Om spelaren vinner, så läggs 2* vadet till hens pengar (om spelaren vinner med blackJack - tillämpa specialare )
+
+Gå tillbaka till steg 1
+
+Steg 4:
+
+Om spelaren blir "tjock", gå till steg 1.
