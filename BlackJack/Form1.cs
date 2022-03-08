@@ -203,6 +203,8 @@ namespace BlackJack
             eventDisplay.Text += "You draw a card..\n\n";
 
             CheckIfBlackjack();
+            CheckIfDealerBlackjack();
+
 
             //Spelaren förlorar automatiskt om poängen går över 21p = BUST
             if (player.Points >= 22)
@@ -229,6 +231,7 @@ namespace BlackJack
                 eventDisplay.Text += "Dealer draws a card.. \n\n";
             }
             CheckIfBlackjack();
+            CheckIfDealerBlackjack();
 
             //Om dealern är tjock (mer än 21p) = spelaren vinner
             if (dealer.Points > 21)
@@ -314,6 +317,7 @@ namespace BlackJack
             pictureBox12.Image = null;
             pictureBox11.Image = null;
             Card showHiddenchard = null;
+            pictureBox11.Height = 110;
         }
 
         private void CheckIfBlackjack()
@@ -326,13 +330,25 @@ namespace BlackJack
                     eventDisplay.Text += "WOOooHOOoo!! You got BLACKjACK! \n\n";
                     player.Cash += int.Parse(betInput.Text) * 3;
                     cashDisplay.Text = "$" + player.Cash.ToString();
+                    CheckIfDealerBlackjack();
                     ResetTable();
                     break;
                 }
-                else if (dealer.Points == 21)
+                else
                 {
-           
-                    eventDisplay.Text += dealer.Points.ToString() + "The dealer got BLACKjACK!\n"
+                    isTrue = true;
+                }
+            }
+        }
+
+        private void CheckIfDealerBlackjack()
+        {
+            bool isTrue = false;
+            while (!isTrue)
+            {
+                if (dealer.Points == 21)
+                {
+                    eventDisplay.Text += "The dealer got BLACKjACK!\n"
                         + " You loose! \n";
                     ResetTable();
                     break;
