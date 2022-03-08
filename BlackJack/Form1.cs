@@ -129,8 +129,8 @@ namespace BlackJack
         {
             Card tempCard = new Card(deck[^1].Suit, deck[^1].Value, deck[^1].Image);
             dealer.DrawCard(tempCard);
-            dealerDisplay.Text += "unknown card";
-            pictureBox11.Image = dealer.Hand[^1].Image;
+            dealerDisplay.Text += "unknown card\n";
+            pictureBox11.Image = Resources.cardBack;
             deck.RemoveAt(deck.Count - 1);
         }
 
