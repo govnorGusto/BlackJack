@@ -316,7 +316,8 @@ namespace BlackJack
             pictureBox12.Image = null;
             pictureBox11.Image = null;
         }
-        void CheckIfBlackjack()
+
+        private void CheckIfBlackjack()
         {
             bool isTrue = false;
             while (!isTrue)
@@ -327,12 +328,14 @@ namespace BlackJack
                     player.Cash += int.Parse(betInput.Text) * 3;
                     cashDisplay.Text = "$" + player.Cash.ToString();
                     ResetTable();
+                    break;
                 }
                 else if (dealer.Points == 21)
                 {
                     eventDisplay.Text += dealer.Points.ToString() + "The dealer got BLACKjACK!\n" 
                         + " You loose! \n";
                     ResetTable();
+                    break;
                 }
                 else
                 {
