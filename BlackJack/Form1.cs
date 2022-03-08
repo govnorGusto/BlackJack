@@ -1,5 +1,4 @@
 using BlackJack.Properties;
-using System.Linq;
 
 namespace BlackJack
 {
@@ -147,7 +146,7 @@ namespace BlackJack
             }
 
             //läger till ett random kort
-            Random tempRandom =new Random();
+            Random tempRandom = new Random();
             deck = deck.OrderBy(whatever => tempRandom.Next()).ToList();
         }
 
@@ -168,21 +167,21 @@ namespace BlackJack
                 CreateAndShuffleDeck();
                 player.CurrentBet = int.Parse(betInput.Text);
                 DealCard();
-                DealerDealHiddenCard();         
+                DealerDealHiddenCard();
                 DealCard();
                 DealerDealCard();
                 player.CalculatePoints();
                 pointsDisplay.Text = player.Points.ToString();
                 player.Cash -= int.Parse(betInput.Text);
                 cashDisplay.Text = "$" + player.Cash.ToString();
-                dealer.CalculatePoints();        
+                dealer.CalculatePoints();
             }
 
             //Annars skriv en messageBox till spelaren med alla krav på satsningen
             else
             {
-                MessageBox.Show("Your bet may only contain a whole number, \n" 
-                    + "Must be grater than 0, \n" 
+                MessageBox.Show("Your bet may only contain a whole number, \n"
+                    + "Must be grater than 0, \n"
                     + "And can't exceed cash you have on hand",
                     "Invalid bet.");
             }
@@ -196,14 +195,14 @@ namespace BlackJack
             player.CalculatePoints();
             pointsDisplay.Text = player.Points.ToString();
             eventDisplay.Text += "You draw a card..\n\n";
-  
+
             CheckIfBlackjack();
 
             //Spelaren förlorar automatiskt om poängen går över 21p = BUST
             if (player.Points >= 22)
             {
-                eventDisplay.Text += "Your points are: " +player.Points.ToString() + "p \n\n" 
-                    + "Too bad! You BUST! \n\n";                
+                eventDisplay.Text += "Your points are: " + player.Points.ToString() + "p \n\n"
+                    + "Too bad! You BUST! \n\n";
                 ResetTable();
             }
         }
@@ -229,10 +228,10 @@ namespace BlackJack
             if (dealer.Points > 21)
             {
                 dealerDisplay.Text = dealer.Points.ToString();
-                player.Cash += int.Parse(betInput.Text)*2;
+                player.Cash += int.Parse(betInput.Text) * 2;
                 cashDisplay.Text = "$" + player.Cash.ToString();
-                eventDisplay.Text += "Dealers goes BUST on " + dealer.Points.ToString() + "p \n\n" 
-                    +"You Win! \n\n";
+                eventDisplay.Text += "Dealers goes BUST on " + dealer.Points.ToString() + "p \n\n"
+                    + "You Win! \n\n";
                 ResetTable();
             }
 
@@ -240,14 +239,14 @@ namespace BlackJack
             else if (player.Points <= dealer.Points)
             {
                 playerDisplay.Text = player.Points.ToString();
-                eventDisplay.Text += "Dealer have " + dealer.Points.ToString() + "p \n" 
-                    +"You have " + player.Points.ToString() + "p \n\n";
-                if(player.Points == dealer.Points)
+                eventDisplay.Text += "Dealer have " + dealer.Points.ToString() + "p \n"
+                    + "You have " + player.Points.ToString() + "p \n\n";
+                if (player.Points == dealer.Points)
                 {
                     eventDisplay.Text += "The house always wins if there is a tie. \n\n";
                 }
                 eventDisplay.Text += "too bad! You loose! \n\n";
-                ResetTable();;
+                ResetTable(); ;
             }
             //Annars vinner spelaren
             else
@@ -255,13 +254,13 @@ namespace BlackJack
                 playerDisplay.Text = player.Points.ToString();
                 player.Cash += int.Parse(betInput.Text) * 2;
                 cashDisplay.Text = "$" + player.Cash.ToString();
-                eventDisplay.Text += "Dealer have " + dealer.Points.ToString() + "p \n" 
-                    + "You have " + player.Points.ToString() + "p \n\n" 
+                eventDisplay.Text += "Dealer have " + dealer.Points.ToString() + "p \n"
+                    + "You have " + player.Points.ToString() + "p \n\n"
                     + "YaY! You win! \n\n";
                 ResetTable();
             }
         }
- 
+
         async void ResetTable()
         {
             playerDisplay.Clear();
@@ -289,11 +288,11 @@ namespace BlackJack
             pictureBox1.Image = null;
             pictureBox2.Image = null;
             pictureBox3.Image = null;
-            pictureBox4.Image = null; 
+            pictureBox4.Image = null;
             pictureBox5.Image = null;
-            pictureBox6.Image = null; 
+            pictureBox6.Image = null;
             pictureBox7.Image = null;
-            pictureBox8.Image = null; 
+            pictureBox8.Image = null;
             pictureBox9.Image = null;
             pictureBox10.Image = null;
             pictureBox20.Image = null;
@@ -323,7 +322,7 @@ namespace BlackJack
                 }
                 else if (dealer.Points == 21)
                 {
-                    eventDisplay.Text += dealer.Points.ToString() + "The dealer got BLACKjACK!\n" 
+                    eventDisplay.Text += dealer.Points.ToString() + "The dealer got BLACKjACK!\n"
                         + " You loose! \n";
                     ResetTable();
                     break;
