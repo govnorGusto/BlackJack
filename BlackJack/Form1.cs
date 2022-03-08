@@ -203,7 +203,7 @@ namespace BlackJack
             eventDisplay.Text += "You draw a card..\n\n";
 
             CheckIfBlackjack();
-            CheckIfDealerBlackjack();
+            //CheckIfDealerBlackjack();
 
 
             //Spelaren förlorar automatiskt om poängen går över 21p = BUST
@@ -231,7 +231,7 @@ namespace BlackJack
                 eventDisplay.Text += "Dealer draws a card.. \n\n";
             }
             CheckIfBlackjack();
-            CheckIfDealerBlackjack();
+            //CheckIfDealerBlackjack();
 
             //Om dealern är tjock (mer än 21p) = spelaren vinner
             if (dealer.Points > 21)
@@ -330,7 +330,7 @@ namespace BlackJack
                     eventDisplay.Text += "WOOooHOOoo!! You got BLACKjACK! \n\n";
                     player.Cash += int.Parse(betInput.Text) * 3;
                     cashDisplay.Text = "$" + player.Cash.ToString();
-                    CheckIfDealerBlackjack();
+                    //CheckIfDealerBlackjack();
                     ResetTable();
                     break;
                 }
@@ -341,23 +341,23 @@ namespace BlackJack
             }
         }
 
-        private void CheckIfDealerBlackjack()
-        {
-            bool isTrue = false;
-            while (!isTrue)
-            {
-                if (dealer.Points == 21)
-                {
-                    eventDisplay.Text += "The dealer got BLACKjACK!\n"
-                        + " You loose! \n";
-                    ResetTable();
-                    break;
-                }
-                else
-                {
-                    isTrue = true;
-                }
-            }
-        }
+        //private void CheckIfDealerBlackjack()
+        //{
+        //    bool isTrue = false;
+        //    while (!isTrue)
+        //    {
+        //        if (dealer.Points == 21)
+        //        {
+        //            eventDisplay.Text += "The dealer got BLACKjACK!\n\n"
+        //                + "You loose!! \n";
+        //            ResetTable();
+        //            break;
+        //        }
+        //        else
+        //        {
+        //            isTrue = true;
+        //        }
+        //    }
+        //}
     }
 }
