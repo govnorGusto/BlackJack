@@ -7,6 +7,8 @@ namespace BlackJack
         List<Card> deck = new List<Card>();
         Player player = new Player();
         Player dealer = new Player();
+
+        Card showHiddenchard;
         public Form1()
         {
             InitializeComponent();
@@ -125,6 +127,7 @@ namespace BlackJack
         {
             Card tempCard = new Card(deck[^1].Suit, deck[^1].Value, deck[^1].Image);
             dealer.DrawCard(tempCard);
+            showHiddenchard = tempCard; //sparar det göda kortet till senare
             dealerDisplay.Text += "unknown card\n";
             pictureBox11.Image = Resources.cardBack;
             deck.RemoveAt(deck.Count - 1);
@@ -266,6 +269,8 @@ namespace BlackJack
 
         async void ResetTable()
         {
+            pictureBox11.Height = 114; //Set höjden av det gömda kortet att matcha resten
+            pictureBox11.Image = showHiddenchard.Image;
             playerDisplay.Clear();
             dealerDisplay.Clear();
             pointsDisplay.Text = null;
@@ -308,6 +313,7 @@ namespace BlackJack
             pictureBox13.Image = null;
             pictureBox12.Image = null;
             pictureBox11.Image = null;
+            Card showHiddenchard = null;
         }
 
         private void CheckIfBlackjack()
@@ -325,6 +331,7 @@ namespace BlackJack
                 }
                 else if (dealer.Points == 21)
                 {
+           
                     eventDisplay.Text += dealer.Points.ToString() + "The dealer got BLACKjACK!\n"
                         + " You loose! \n";
                     ResetTable();
