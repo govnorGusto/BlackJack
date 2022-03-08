@@ -8,12 +8,6 @@ namespace BlackJack
         List<Card> deck = new List<Card>();
         Player player = new Player();
         Player dealer = new Player();
-        //bool blackjack = false;
-        //bool dealerBlackjack = false;
-        //bool playerBlackjack = false;
-
-        PictureBox pictureBoxPlayer;
-        PictureBox pictureBoxDealer;
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +25,8 @@ namespace BlackJack
             RenderPlayerImage();
             deck.RemoveAt(deck.Count - 1);
         }
+        
+        //renderar kort-bilder till pictureBox för player
         void RenderPlayerImage()
         {
             if (pictureBox1.Image == null)
@@ -85,6 +81,7 @@ namespace BlackJack
             RenderDealerImage();
             deck.RemoveAt(deck.Count - 1);
         }
+        //Renderar kort-bilder till pictureBox för dealer
         void RenderDealerImage()
         {
             if (pictureBox12.Image == null)
@@ -134,7 +131,7 @@ namespace BlackJack
             deck.RemoveAt(deck.Count - 1);
         }
 
-        //skapar enn kortlek av 52 kort och blandar dessa
+        //skapar en kortlek av 52 kort och blandar dessa
         public void CreateAndShuffleDeck()
         {
             deck.RemoveRange(0, deck.Count);    //töm vid ny runda
@@ -162,12 +159,11 @@ namespace BlackJack
             //deck.RemoveAt(randomIndex);
         }
 
-
         private async void btnBet_Click(object sender, EventArgs e)
         {
-            //kollar om spelaren ha nog med cash
-            //att inte satsade 0 elle neg.tal
-            //att textfältet för bet inte var tomt
+            //Kollar om spelaren ha nog med cash
+            //Att inte satsade 0 elle negativa tal
+            //Att textfältet för bet inte var tomt
             if (int.TryParse(betInput.Text, out _) == true
                 && int.Parse(betInput.Text) > 0
                 && int.Parse(betInput.Text) <= player.Cash)
@@ -188,9 +184,9 @@ namespace BlackJack
                 player.Cash -= int.Parse(betInput.Text);
                 cashDisplay.Text = "$" + player.Cash.ToString();
                 dealer.CalculatePoints();
-                //dealerPointsDisplay.Text = dealer.Points.ToString();//remove when ready to NOT show dealers points
+                
             }
-            //Annars sktiv till spelaren alla krav på satsningen
+            //Annars skriv en messageBox till spelaren med alla krav på satsningen
             else
             {
                 MessageBox.Show("Your bet may only contain a whole number, \n" 
@@ -199,11 +195,10 @@ namespace BlackJack
                     "Invalid bet.");
             }
             CheckIfBlackjack();
-           
         }
 
-        // ta ett till kort
-        private async void btnHit_Click(object sender, EventArgs e)
+        //S ett till kort
+        private void btnHit_Click(object sender, EventArgs e)
         {
             DealCard();
             player.CalculatePoints();
@@ -224,12 +219,12 @@ namespace BlackJack
         //Spelaren väljer att stanna
         private void btnStand_Click(object sender, EventArgs e)
         {
-            // stannar på nuvarande poäng
-            // dealerns tur 
+            //Spelaren stannar på nuvarande poäng
+            //Dealerns tur 
 
             dealer.CalculatePoints();
 
-            //om dealern har mindre än 17p måste denne dra ett nytt kort
+            //Om dealern har mindre än 17p måste denne dra ett nytt kort
             while (dealer.Points <= 16)
             {
                 DealerDealCard();
@@ -238,7 +233,7 @@ namespace BlackJack
             }
             CheckIfBlackjack();
 
-            //om dealern är tjock (mer än 21p) 
+            //Om dealern är tjock (mer än 21p) 
             if (dealer.Points > 21)
             {
                 dealerDisplay.Text = dealer.Points.ToString();
@@ -249,7 +244,7 @@ namespace BlackJack
                 ResetTable();
             }
 
-            //om spelarens poäng är mindre eller lika med dealerns = förlust
+            //Om spelarens poäng är mindre eller lika med dealerns = förlust
             else if (player.Points <= dealer.Points)
             {
                 playerDisplay.Text = player.Points.ToString();
@@ -262,7 +257,7 @@ namespace BlackJack
                 eventDisplay.Text += "too bad! You loose! \n\n";
                 ResetTable();;
             }
-            //annars vinner spelaren
+            //Annars vinner spelaren
             else
             {
                 playerDisplay.Text = player.Points.ToString();
