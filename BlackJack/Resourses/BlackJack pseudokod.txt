@@ -29,3 +29,14 @@ Gå tillbaka till steg 1
 Steg 4:
 
 Om spelaren blir "tjock", gå till steg 1.
+
+
+
+
+
+Grafik:
+första kortet startar på 0+1px i x-kordinat,
+ett kort är 77px brett och 118px,  
+mellanrum till nästa är 10px, 
+
+kortet får bli 1+77+9px brett  = 87px
