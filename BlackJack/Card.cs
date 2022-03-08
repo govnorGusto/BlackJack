@@ -80,7 +80,7 @@ namespace BlackJack
                 switch (this.Suit)
                 {
                     case Suits.diamonds:
-                        y = 1-1;
+                        y = 0;
                         break;
                     case Suits.clubs:
                         y = 128;
