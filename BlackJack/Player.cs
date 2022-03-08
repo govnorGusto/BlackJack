@@ -51,34 +51,41 @@ namespace BlackJack
 
             bool aceFound = false;
             int calculatedPoints = 0;
-            for (int current_card = 0; current_card < hand.Count; current_card++)
+            bool isTrue = false;
+            while (!isTrue)
             {
-                calculatedPoints += (int)hand[current_card].Value;
-
-                switch ((int)hand[current_card].Value)
+                for (int current_card = 0; current_card < hand.Count; current_card++)
                 {
-                    case 11:
-                        calculatedPoints -= 1;
-                        break;
-                    case 12:
-                        calculatedPoints -= 2;
-                        break;
-                    case 13:
-                        calculatedPoints -= 3 ;
-                        break;
+                    calculatedPoints += (int)hand[current_card].Value;
+
+                    switch ((int)hand[current_card].Value)
+                    {
+                        case 11:
+                            calculatedPoints -= 1;
+                            break;
+                        case 12:
+                            calculatedPoints -= 2;
+                            break;
+                        case 13:
+                            calculatedPoints -= 3 ;
+                            break;
+                    }
+
+                    if (hand[current_card].Value == Card.Values.ace)
+                    {
+                        aceFound = true;
+                    }
+
+                    // Om det finns ett ess och poängen inte överstiger 21 
+                    //Gör om ess till 11
+                    if (aceFound && calculatedPoints + 10 < 22)
+                    {
+                        calculatedPoints += 10;  // gör denna valbar
+                    }  
+                    points = calculatedPoints;
                 }
-
-                if (hand[current_card].Value == Card.Values.ace)
-                {
-                    aceFound = true;
-                }
-
-                // Om det finns ett ess och poängen inte överstiger 21 (BUST)
-                if (aceFound && calculatedPoints + 10 < 22)
-                {
-                    calculatedPoints += 10;  // gör denna valbar
-                }  
-                points = calculatedPoints;
+                calculatedPoints = 0;
+                isTrue = true;
             }
         }
     }
