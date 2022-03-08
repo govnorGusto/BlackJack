@@ -188,7 +188,7 @@ namespace BlackJack
                 player.Cash -= int.Parse(betInput.Text);
                 cashDisplay.Text = "$" + player.Cash.ToString();
                 dealer.CalculatePoints();
-                dealerPointsDisplay.Text = dealer.Points.ToString();//remove when ready to NOT show dealers points
+                //dealerPointsDisplay.Text = dealer.Points.ToString();//remove when ready to NOT show dealers points
             }
             //Annars sktiv till spelaren alla krav på satsningen
             else
@@ -198,7 +198,6 @@ namespace BlackJack
                     + "And can't exceed cash you have on hand",
                     "Invalid bet.");
             }
-            await Task.Delay(1500);
             CheckIfBlackjack();
            
         }
@@ -210,7 +209,7 @@ namespace BlackJack
             player.CalculatePoints();
             pointsDisplay.Text = player.Points.ToString();
             eventDisplay.Text += "You draw a card..\n\n";
-            await Task.Delay(1500);
+          
             CheckIfBlackjack();
 
             //spelaren förlorar automatiskt om poängen går över 21p
@@ -237,7 +236,6 @@ namespace BlackJack
                 dealer.CalculatePoints();
                 eventDisplay.Text += "Dealer draws a card.. \n\n";
             }
-
             CheckIfBlackjack();
 
             //om dealern är tjock (mer än 21p) 
@@ -277,8 +275,9 @@ namespace BlackJack
             }
         }
  
-        void ResetTable()
+        async void ResetTable()
         {
+            await Task.Delay(2000);
             //eventDisplay.Clear();
             playerDisplay.Clear();
             dealerDisplay.Clear();
@@ -322,7 +321,6 @@ namespace BlackJack
             pictureBox12.Image = null;
             pictureBox11.Image = null;
         }
-
         void CheckIfBlackjack()
         {
             bool isTrue = false;

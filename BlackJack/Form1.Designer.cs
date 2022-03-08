@@ -39,7 +39,6 @@
             this.betInput = new System.Windows.Forms.TextBox();
             this.pointsDisplay = new System.Windows.Forms.Label();
             this.cashDisplay = new System.Windows.Forms.Label();
-            this.dealerPointsDisplay = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -60,6 +59,7 @@
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.dealerPointsDisplay = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -86,11 +86,11 @@
             // 
             this.dealerDisplay.BackColor = System.Drawing.Color.Silver;
             this.dealerDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dealerDisplay.Location = new System.Drawing.Point(56, 296);
+            this.dealerDisplay.Location = new System.Drawing.Point(319, 253);
             this.dealerDisplay.Margin = new System.Windows.Forms.Padding(6);
             this.dealerDisplay.Name = "dealerDisplay";
             this.dealerDisplay.ReadOnly = true;
-            this.dealerDisplay.Size = new System.Drawing.Size(348, 60);
+            this.dealerDisplay.Size = new System.Drawing.Size(361, 119);
             this.dealerDisplay.TabIndex = 0;
             this.dealerDisplay.Text = "";
             // 
@@ -98,11 +98,11 @@
             // 
             this.playerDisplay.BackColor = System.Drawing.Color.Silver;
             this.playerDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.playerDisplay.Location = new System.Drawing.Point(56, 395);
+            this.playerDisplay.Location = new System.Drawing.Point(319, 384);
             this.playerDisplay.Margin = new System.Windows.Forms.Padding(6);
             this.playerDisplay.Name = "playerDisplay";
             this.playerDisplay.ReadOnly = true;
-            this.playerDisplay.Size = new System.Drawing.Size(348, 61);
+            this.playerDisplay.Size = new System.Drawing.Size(361, 119);
             this.playerDisplay.TabIndex = 1;
             this.playerDisplay.Text = "";
             // 
@@ -219,25 +219,13 @@
             this.cashDisplay.AutoSize = true;
             this.cashDisplay.BackColor = System.Drawing.Color.Transparent;
             this.cashDisplay.Font = new System.Drawing.Font("Verdana", 13.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cashDisplay.Location = new System.Drawing.Point(1447, 753);
+            this.cashDisplay.Location = new System.Drawing.Point(1370, 754);
             this.cashDisplay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.cashDisplay.Name = "cashDisplay";
             this.cashDisplay.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.cashDisplay.Size = new System.Drawing.Size(63, 42);
             this.cashDisplay.TabIndex = 12;
             this.cashDisplay.Text = "$";
-            // 
-            // dealerPointsDisplay
-            // 
-            this.dealerPointsDisplay.AutoSize = true;
-            this.dealerPointsDisplay.BackColor = System.Drawing.Color.Transparent;
-            this.dealerPointsDisplay.Font = new System.Drawing.Font("Verdana", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dealerPointsDisplay.Location = new System.Drawing.Point(676, 20);
-            this.dealerPointsDisplay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.dealerPointsDisplay.Name = "dealerPointsDisplay";
-            this.dealerPointsDisplay.Size = new System.Drawing.Size(269, 65);
-            this.dealerPointsDisplay.TabIndex = 13;
-            this.dealerPointsDisplay.Text = "dealer p";
             // 
             // pictureBox2
             // 
@@ -419,6 +407,18 @@
             this.pictureBox11.TabIndex = 24;
             this.pictureBox11.TabStop = false;
             // 
+            // dealerPointsDisplay
+            // 
+            this.dealerPointsDisplay.AutoSize = true;
+            this.dealerPointsDisplay.BackColor = System.Drawing.Color.Transparent;
+            this.dealerPointsDisplay.Font = new System.Drawing.Font("Verdana", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dealerPointsDisplay.Location = new System.Drawing.Point(563, 9);
+            this.dealerPointsDisplay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.dealerPointsDisplay.Name = "dealerPointsDisplay";
+            this.dealerPointsDisplay.Size = new System.Drawing.Size(395, 65);
+            this.dealerPointsDisplay.TabIndex = 13;
+            this.dealerPointsDisplay.Text = "BlackJack21";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -506,7 +506,6 @@
         private TextBox betInput;
         private Label pointsDisplay;
         private Label cashDisplay;
-        private Label dealerPointsDisplay;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
@@ -527,5 +526,6 @@
         private PictureBox pictureBox13;
         private PictureBox pictureBox12;
         private PictureBox pictureBox11;
+        private Label dealerPointsDisplay;
     }
 }
