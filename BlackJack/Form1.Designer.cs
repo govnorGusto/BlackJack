@@ -110,6 +110,7 @@
             // 
             this.eventDisplay.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.eventDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.eventDisplay.Font = new System.Drawing.Font("SimSun-ExtB", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.eventDisplay.Location = new System.Drawing.Point(1059, 114);
             this.eventDisplay.Margin = new System.Windows.Forms.Padding(6);
             this.eventDisplay.Name = "eventDisplay";

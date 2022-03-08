@@ -7,6 +7,8 @@ namespace BlackJack
         List<Card> deck = new List<Card>();
         Player player = new Player();
         Player dealer = new Player();
+
+        Card showHiddenchard;
         public Form1()
         {
             InitializeComponent();
@@ -120,13 +122,17 @@ namespace BlackJack
             }
         }
 
+        //Skapar dealerns gömda kort
         void DealerDealHiddenCard()
         {
             Card tempCard = new Card(deck[^1].Suit, deck[^1].Value, deck[^1].Image);
             dealer.DrawCard(tempCard);
+            showHiddenchard = tempCard; //sparar det göda kortet till senare
             dealerDisplay.Text += "unknown card\n";
             pictureBox11.Image = Resources.cardBack;
             deck.RemoveAt(deck.Count - 1);
+
+            // Hur visar jag det?
         }
 
         //Skapar en kortlek av 52 kort och blandar dessa
@@ -150,7 +156,7 @@ namespace BlackJack
             deck = deck.OrderBy(whatever => tempRandom.Next()).ToList();
         }
 
-        private async void btnBet_Click(object sender, EventArgs e)
+        private void btnBet_Click(object sender, EventArgs e)
         {
             //Kollar om spelaren ha nog med cash
             //Att inte satsade 0 elle negativa tal
@@ -188,7 +194,7 @@ namespace BlackJack
             CheckIfBlackjack();
         }
 
-        //S ett till kort
+        //Spelaren drar ett till kort
         private void btnHit_Click(object sender, EventArgs e)
         {
             DealCard();
@@ -197,6 +203,8 @@ namespace BlackJack
             eventDisplay.Text += "You draw a card..\n\n";
 
             CheckIfBlackjack();
+            CheckIfDealerBlackjack();
+
 
             //Spelaren förlorar automatiskt om poängen går över 21p = BUST
             if (player.Points >= 22)
@@ -223,6 +231,7 @@ namespace BlackJack
                 eventDisplay.Text += "Dealer draws a card.. \n\n";
             }
             CheckIfBlackjack();
+            CheckIfDealerBlackjack();
 
             //Om dealern är tjock (mer än 21p) = spelaren vinner
             if (dealer.Points > 21)
@@ -263,6 +272,8 @@ namespace BlackJack
 
         async void ResetTable()
         {
+            pictureBox11.Height = 114; //Set höjden av det gömda kortet att matcha resten
+            pictureBox11.Image = showHiddenchard.Image;
             playerDisplay.Clear();
             dealerDisplay.Clear();
             pointsDisplay.Text = null;
@@ -272,7 +283,7 @@ namespace BlackJack
             btnStand.Enabled = false;
             btnBet.Enabled = true;
             betInput.Enabled = true;
-            await Task.Delay(2000);
+            await Task.Delay(2000); // väntar 2 sek med att radera poäng och nollställa bilder 
             ResetPoints();
             ResetImages();
         }
@@ -305,6 +316,8 @@ namespace BlackJack
             pictureBox13.Image = null;
             pictureBox12.Image = null;
             pictureBox11.Image = null;
+            Card showHiddenchard = null;
+            pictureBox11.Height = 110;
         }
 
         private void CheckIfBlackjack()
@@ -317,12 +330,25 @@ namespace BlackJack
                     eventDisplay.Text += "WOOooHOOoo!! You got BLACKjACK! \n\n";
                     player.Cash += int.Parse(betInput.Text) * 3;
                     cashDisplay.Text = "$" + player.Cash.ToString();
+                    CheckIfDealerBlackjack();
                     ResetTable();
                     break;
                 }
-                else if (dealer.Points == 21)
+                else
                 {
-                    eventDisplay.Text += dealer.Points.ToString() + "The dealer got BLACKjACK!\n"
+                    isTrue = true;
+                }
+            }
+        }
+
+        private void CheckIfDealerBlackjack()
+        {
+            bool isTrue = false;
+            while (!isTrue)
+            {
+                if (dealer.Points == 21)
+                {
+                    eventDisplay.Text += "The dealer got BLACKjACK!\n"
                         + " You loose! \n";
                     ResetTable();
                     break;
