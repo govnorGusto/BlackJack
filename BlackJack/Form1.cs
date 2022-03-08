@@ -272,7 +272,6 @@ namespace BlackJack
  
         async void ResetTable()
         {
-            await Task.Delay(2000);
             //eventDisplay.Clear();
             playerDisplay.Clear();
             dealerDisplay.Clear();
@@ -283,6 +282,7 @@ namespace BlackJack
             btnStand.Enabled = false;
             btnBet.Enabled = true;
             betInput.Enabled = true;
+            await Task.Delay(2000);
             ResetPoints();
             ResetImages();
         }
