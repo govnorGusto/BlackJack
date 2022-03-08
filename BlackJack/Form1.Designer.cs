@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dealerDisplay = new System.Windows.Forms.RichTextBox();
-            this.playerDisplay = new System.Windows.Forms.RichTextBox();
             this.eventDisplay = new System.Windows.Forms.RichTextBox();
             this.btnHit = new System.Windows.Forms.Button();
             this.btnStand = new System.Windows.Forms.Button();
@@ -82,40 +80,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
-            // dealerDisplay
-            // 
-            this.dealerDisplay.BackColor = System.Drawing.Color.Silver;
-            this.dealerDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dealerDisplay.Location = new System.Drawing.Point(319, 253);
-            this.dealerDisplay.Margin = new System.Windows.Forms.Padding(6);
-            this.dealerDisplay.Name = "dealerDisplay";
-            this.dealerDisplay.ReadOnly = true;
-            this.dealerDisplay.Size = new System.Drawing.Size(361, 119);
-            this.dealerDisplay.TabIndex = 0;
-            this.dealerDisplay.Text = "";
-            // 
-            // playerDisplay
-            // 
-            this.playerDisplay.BackColor = System.Drawing.Color.Silver;
-            this.playerDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.playerDisplay.Location = new System.Drawing.Point(319, 384);
-            this.playerDisplay.Margin = new System.Windows.Forms.Padding(6);
-            this.playerDisplay.Name = "playerDisplay";
-            this.playerDisplay.ReadOnly = true;
-            this.playerDisplay.Size = new System.Drawing.Size(361, 119);
-            this.playerDisplay.TabIndex = 1;
-            this.playerDisplay.Text = "";
-            // 
             // eventDisplay
             // 
             this.eventDisplay.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.eventDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.eventDisplay.Font = new System.Drawing.Font("SimSun-ExtB", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.eventDisplay.Location = new System.Drawing.Point(1059, 114);
+            this.eventDisplay.Location = new System.Drawing.Point(261, 278);
             this.eventDisplay.Margin = new System.Windows.Forms.Padding(6);
             this.eventDisplay.Name = "eventDisplay";
             this.eventDisplay.ReadOnly = true;
-            this.eventDisplay.Size = new System.Drawing.Size(264, 528);
+            this.eventDisplay.Size = new System.Drawing.Size(497, 197);
             this.eventDisplay.TabIndex = 2;
             this.eventDisplay.Text = "";
             // 
@@ -126,7 +100,7 @@
             this.btnHit.Enabled = false;
             this.btnHit.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnHit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnHit.Location = new System.Drawing.Point(1370, 114);
+            this.btnHit.Location = new System.Drawing.Point(1033, 134);
             this.btnHit.Margin = new System.Windows.Forms.Padding(6);
             this.btnHit.Name = "btnHit";
             this.btnHit.Size = new System.Drawing.Size(184, 109);
@@ -142,7 +116,7 @@
             this.btnStand.Enabled = false;
             this.btnStand.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnStand.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnStand.Location = new System.Drawing.Point(1370, 263);
+            this.btnStand.Location = new System.Drawing.Point(1033, 283);
             this.btnStand.Margin = new System.Windows.Forms.Padding(6);
             this.btnStand.Name = "btnStand";
             this.btnStand.Size = new System.Drawing.Size(184, 109);
@@ -157,7 +131,7 @@
             this.btnBet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBet.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnBet.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnBet.Location = new System.Drawing.Point(1370, 419);
+            this.btnBet.Location = new System.Drawing.Point(1033, 439);
             this.btnBet.Margin = new System.Windows.Forms.Padding(6);
             this.btnBet.Name = "btnBet";
             this.btnBet.Size = new System.Drawing.Size(184, 109);
@@ -171,7 +145,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Verdana", 18.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(1186, 674);
+            this.label1.Location = new System.Drawing.Point(849, 694);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 59);
@@ -195,7 +169,7 @@
             this.betInput.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.betInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.betInput.Font = new System.Drawing.Font("Verdana", 18.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.betInput.Location = new System.Drawing.Point(1370, 664);
+            this.betInput.Location = new System.Drawing.Point(1033, 684);
             this.betInput.Margin = new System.Windows.Forms.Padding(6);
             this.betInput.Name = "betInput";
             this.betInput.Size = new System.Drawing.Size(184, 69);
@@ -220,7 +194,7 @@
             this.cashDisplay.AutoSize = true;
             this.cashDisplay.BackColor = System.Drawing.Color.Transparent;
             this.cashDisplay.Font = new System.Drawing.Font("Verdana", 13.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cashDisplay.Location = new System.Drawing.Point(1370, 754);
+            this.cashDisplay.Location = new System.Drawing.Point(1033, 774);
             this.cashDisplay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.cashDisplay.Name = "cashDisplay";
             this.cashDisplay.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -231,7 +205,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Location = new System.Drawing.Point(58, 512);
+            this.pictureBox2.Location = new System.Drawing.Point(96, 502);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 130);
             this.pictureBox2.TabIndex = 1;
@@ -240,7 +214,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 512);
+            this.pictureBox1.Location = new System.Drawing.Point(58, 502);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 130);
             this.pictureBox1.TabIndex = 0;
@@ -249,7 +223,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Location = new System.Drawing.Point(158, 512);
+            this.pictureBox3.Location = new System.Drawing.Point(196, 502);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(100, 130);
             this.pictureBox3.TabIndex = 17;
@@ -258,7 +232,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Location = new System.Drawing.Point(258, 512);
+            this.pictureBox4.Location = new System.Drawing.Point(296, 502);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 130);
             this.pictureBox4.TabIndex = 18;
@@ -267,7 +241,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Location = new System.Drawing.Point(358, 512);
+            this.pictureBox5.Location = new System.Drawing.Point(396, 502);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(100, 130);
             this.pictureBox5.TabIndex = 19;
@@ -276,7 +250,7 @@
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Location = new System.Drawing.Point(458, 512);
+            this.pictureBox6.Location = new System.Drawing.Point(496, 502);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(100, 130);
             this.pictureBox6.TabIndex = 20;
@@ -285,7 +259,7 @@
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.Location = new System.Drawing.Point(558, 512);
+            this.pictureBox7.Location = new System.Drawing.Point(596, 502);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(100, 130);
             this.pictureBox7.TabIndex = 21;
@@ -294,7 +268,7 @@
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.Location = new System.Drawing.Point(658, 512);
+            this.pictureBox8.Location = new System.Drawing.Point(696, 502);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(100, 130);
             this.pictureBox8.TabIndex = 22;
@@ -303,7 +277,7 @@
             // pictureBox9
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox9.Location = new System.Drawing.Point(758, 512);
+            this.pictureBox9.Location = new System.Drawing.Point(796, 502);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(100, 130);
             this.pictureBox9.TabIndex = 22;
@@ -312,7 +286,7 @@
             // pictureBox10
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox10.Location = new System.Drawing.Point(858, 512);
+            this.pictureBox10.Location = new System.Drawing.Point(896, 502);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(100, 130);
             this.pictureBox10.TabIndex = 23;
@@ -321,7 +295,7 @@
             // pictureBox20
             // 
             this.pictureBox20.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox20.Location = new System.Drawing.Point(856, 114);
+            this.pictureBox20.Location = new System.Drawing.Point(894, 114);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(100, 130);
             this.pictureBox20.TabIndex = 33;
@@ -330,7 +304,7 @@
             // pictureBox19
             // 
             this.pictureBox19.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox19.Location = new System.Drawing.Point(756, 114);
+            this.pictureBox19.Location = new System.Drawing.Point(794, 114);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(100, 130);
             this.pictureBox19.TabIndex = 31;
@@ -339,7 +313,7 @@
             // pictureBox18
             // 
             this.pictureBox18.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox18.Location = new System.Drawing.Point(656, 114);
+            this.pictureBox18.Location = new System.Drawing.Point(694, 114);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(100, 130);
             this.pictureBox18.TabIndex = 32;
@@ -348,7 +322,7 @@
             // pictureBox17
             // 
             this.pictureBox17.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox17.Location = new System.Drawing.Point(556, 114);
+            this.pictureBox17.Location = new System.Drawing.Point(594, 114);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(100, 130);
             this.pictureBox17.TabIndex = 30;
@@ -357,7 +331,7 @@
             // pictureBox16
             // 
             this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox16.Location = new System.Drawing.Point(456, 114);
+            this.pictureBox16.Location = new System.Drawing.Point(494, 114);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(100, 130);
             this.pictureBox16.TabIndex = 29;
@@ -366,7 +340,7 @@
             // pictureBox15
             // 
             this.pictureBox15.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox15.Location = new System.Drawing.Point(356, 114);
+            this.pictureBox15.Location = new System.Drawing.Point(394, 114);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(100, 130);
             this.pictureBox15.TabIndex = 28;
@@ -375,7 +349,7 @@
             // pictureBox14
             // 
             this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox14.Location = new System.Drawing.Point(256, 114);
+            this.pictureBox14.Location = new System.Drawing.Point(294, 114);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(100, 130);
             this.pictureBox14.TabIndex = 27;
@@ -384,7 +358,7 @@
             // pictureBox13
             // 
             this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox13.Location = new System.Drawing.Point(156, 114);
+            this.pictureBox13.Location = new System.Drawing.Point(194, 114);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(100, 130);
             this.pictureBox13.TabIndex = 26;
@@ -393,7 +367,7 @@
             // pictureBox12
             // 
             this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox12.Location = new System.Drawing.Point(56, 114);
+            this.pictureBox12.Location = new System.Drawing.Point(94, 114);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(100, 130);
             this.pictureBox12.TabIndex = 25;
@@ -402,7 +376,7 @@
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox11.Location = new System.Drawing.Point(18, 114);
+            this.pictureBox11.Location = new System.Drawing.Point(56, 114);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(100, 110);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -414,7 +388,7 @@
             this.dealerPointsDisplay.AutoSize = true;
             this.dealerPointsDisplay.BackColor = System.Drawing.Color.Transparent;
             this.dealerPointsDisplay.Font = new System.Drawing.Font("Verdana", 19.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dealerPointsDisplay.Location = new System.Drawing.Point(563, 9);
+            this.dealerPointsDisplay.Location = new System.Drawing.Point(565, 8);
             this.dealerPointsDisplay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.dealerPointsDisplay.Name = "dealerPointsDisplay";
             this.dealerPointsDisplay.Size = new System.Drawing.Size(395, 65);
@@ -428,7 +402,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.Goldenrod;
             this.BackgroundImage = global::BlackJack.Properties.Resources.greenfelt;
-            this.ClientSize = new System.Drawing.Size(1569, 834);
+            this.ClientSize = new System.Drawing.Size(1287, 834);
             this.Controls.Add(this.pictureBox20);
             this.Controls.Add(this.pictureBox19);
             this.Controls.Add(this.pictureBox18);
@@ -459,8 +433,6 @@
             this.Controls.Add(this.btnStand);
             this.Controls.Add(this.btnHit);
             this.Controls.Add(this.eventDisplay);
-            this.Controls.Add(this.playerDisplay);
-            this.Controls.Add(this.dealerDisplay);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
@@ -496,9 +468,6 @@
         }
 
         #endregion
-
-        private RichTextBox dealerDisplay;
-        private RichTextBox playerDisplay;
         private RichTextBox eventDisplay;
         private Button btnHit;
         private Button btnStand;

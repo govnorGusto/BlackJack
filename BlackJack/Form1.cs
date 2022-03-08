@@ -21,8 +21,8 @@ namespace BlackJack
         {
             Card tempCard = new Card(deck[^1].Suit, deck[^1].Value, deck[^1].Image);
             player.DrawCard(tempCard);
-            playerDisplay.Text += player.Hand[player.Hand.Count - 1].Value + " of "
-                + player.Hand[player.Hand.Count - 1].Suit + "\n";
+            //playerDisplay.Text += player.Hand[player.Hand.Count - 1].Value + " of "
+            //    + player.Hand[player.Hand.Count - 1].Suit + "\n";
             RenderPlayerImage();
             deck.RemoveAt(deck.Count - 1);
         }
@@ -76,8 +76,8 @@ namespace BlackJack
         {
             Card tempCard = new Card(deck[^1].Suit, deck[^1].Value, deck[^1].Image);
             dealer.DrawCard(tempCard);
-            dealerDisplay.Text += dealer.Hand[^1].Value + " of "
-                + dealer.Hand[^1].Suit + "\n";
+            //dealerDisplay.Text += dealer.Hand[^1].Value + " of "
+            //    + dealer.Hand[^1].Suit + "\n";
             RenderDealerImage();
             deck.RemoveAt(deck.Count - 1);
         }
@@ -128,7 +128,7 @@ namespace BlackJack
             Card tempCard = new Card(deck[^1].Suit, deck[^1].Value, deck[^1].Image);
             dealer.DrawCard(tempCard);
             showHiddenchard = tempCard; //sparar det göda kortet till senare
-            dealerDisplay.Text += "unknown card\n";
+            //dealerDisplay.Text += "unknown card\n";
             pictureBox11.Image = Resources.cardBack;
             deck.RemoveAt(deck.Count - 1);
 
@@ -181,6 +181,9 @@ namespace BlackJack
                 player.Cash -= int.Parse(betInput.Text);
                 cashDisplay.Text = "$" + player.Cash.ToString();
                 dealer.CalculatePoints();
+                eventDisplay.Text = "You start a new round.\n"
+                    + "Dealer dealt 2 cards to you and self.\n"
+                    + "You have " + player.Points.ToString() + "p\n\n";
             }
 
             //Annars skriv en messageBox till spelaren med alla krav på satsningen
@@ -201,10 +204,7 @@ namespace BlackJack
             player.CalculatePoints();
             pointsDisplay.Text = player.Points.ToString();
             eventDisplay.Text += "You draw a card..\n\n";
-
             CheckIfBlackjack();
-            //CheckIfDealerBlackjack();
-
 
             //Spelaren förlorar automatiskt om poängen går över 21p = BUST
             if (player.Points >= 22)
@@ -231,12 +231,11 @@ namespace BlackJack
                 eventDisplay.Text += "Dealer draws a card.. \n\n";
             }
             CheckIfBlackjack();
-            //CheckIfDealerBlackjack();
 
             //Om dealern är tjock (mer än 21p) = spelaren vinner
             if (dealer.Points > 21)
             {
-                dealerDisplay.Text = dealer.Points.ToString();
+                //dealerDisplay.Text = dealer.Points.ToString();
                 player.Cash += int.Parse(betInput.Text) * 2;
                 cashDisplay.Text = "$" + player.Cash.ToString();
                 eventDisplay.Text += "Dealers goes BUST on " + dealer.Points.ToString() + "p \n\n"
@@ -247,7 +246,7 @@ namespace BlackJack
             //Om spelarens poäng är mindre eller lika med dealerns = förlust
             else if (player.Points <= dealer.Points)
             {
-                playerDisplay.Text = player.Points.ToString();
+                //playerDisplay.Text = player.Points.ToString();
                 eventDisplay.Text += "Dealer have " + dealer.Points.ToString() + "p \n"
                     + "You have " + player.Points.ToString() + "p \n\n";
                 if (player.Points == dealer.Points)
@@ -260,7 +259,7 @@ namespace BlackJack
             //Annars vinner spelaren
             else
             {
-                playerDisplay.Text = player.Points.ToString();
+                //playerDisplay.Text = player.Points.ToString();
                 player.Cash += int.Parse(betInput.Text) * 2;
                 cashDisplay.Text = "$" + player.Cash.ToString();
                 eventDisplay.Text += "Dealer have " + dealer.Points.ToString() + "p \n"
@@ -274,8 +273,8 @@ namespace BlackJack
         {
             pictureBox11.Height = 114; //Set höjden av det gömda kortet att matcha resten
             pictureBox11.Image = showHiddenchard.Image;
-            playerDisplay.Clear();
-            dealerDisplay.Clear();
+            //playerDisplay.Clear();
+            //dealerDisplay.Clear();
             pointsDisplay.Text = null;
             dealerPointsDisplay.Text = null;
             betInput.Clear();
@@ -340,24 +339,5 @@ namespace BlackJack
                 }
             }
         }
-
-        //private void CheckIfDealerBlackjack()
-        //{
-        //    bool isTrue = false;
-        //    while (!isTrue)
-        //    {
-        //        if (dealer.Points == 21)
-        //        {
-        //            eventDisplay.Text += "The dealer got BLACKjACK!\n\n"
-        //                + "You loose!! \n";
-        //            ResetTable();
-        //            break;
-        //        }
-        //        else
-        //        {
-        //            isTrue = true;
-        //        }
-        //    }
-        //}
     }
 }
