@@ -120,6 +120,7 @@ namespace BlackJack
             }
         }
 
+        //Skapar dealerns gömda kort
         void DealerDealHiddenCard()
         {
             Card tempCard = new Card(deck[^1].Suit, deck[^1].Value, deck[^1].Image);
@@ -127,6 +128,8 @@ namespace BlackJack
             dealerDisplay.Text += "unknown card\n";
             pictureBox11.Image = Resources.cardBack;
             deck.RemoveAt(deck.Count - 1);
+
+            // Hur visar jag det?
         }
 
         //Skapar en kortlek av 52 kort och blandar dessa
@@ -150,7 +153,7 @@ namespace BlackJack
             deck = deck.OrderBy(whatever => tempRandom.Next()).ToList();
         }
 
-        private async void btnBet_Click(object sender, EventArgs e)
+        private void btnBet_Click(object sender, EventArgs e)
         {
             //Kollar om spelaren ha nog med cash
             //Att inte satsade 0 elle negativa tal
@@ -188,7 +191,7 @@ namespace BlackJack
             CheckIfBlackjack();
         }
 
-        //S ett till kort
+        //Spelaren drar ett till kort
         private void btnHit_Click(object sender, EventArgs e)
         {
             DealCard();
@@ -272,7 +275,7 @@ namespace BlackJack
             btnStand.Enabled = false;
             btnBet.Enabled = true;
             betInput.Enabled = true;
-            await Task.Delay(2000);
+            await Task.Delay(2000); // väntar 2 sek med att radera poäng och nollställa bilder 
             ResetPoints();
             ResetImages();
         }
