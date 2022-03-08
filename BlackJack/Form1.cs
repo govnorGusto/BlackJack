@@ -28,9 +28,14 @@ namespace BlackJack
             player.DrawCard(tempCard);
             playerDisplay.Text += player.Hand[player.Hand.Count - 1].Value + " of "
                 + player.Hand[player.Hand.Count - 1].Suit + "\n";
+            RenderPlayerImage();
+            deck.RemoveAt(deck.Count - 1);
+        }
+        void RenderPlayerImage()
+        {
             if (pictureBox1.Image == null)
             {
-                pictureBox1.Image = player.Hand[^1].Image;            
+                pictureBox1.Image = player.Hand[^1].Image;
             }
             else if (pictureBox2.Image == null)
             {
@@ -68,10 +73,6 @@ namespace BlackJack
             {
                 pictureBox10.Image = player.Hand[^1].Image;
             }
-
-            deck.RemoveAt(deck.Count - 1);
-
-
         }
 
         //Ger ett kort från leken till dealern
@@ -81,8 +82,47 @@ namespace BlackJack
             dealer.DrawCard(tempCard);
             dealerDisplay.Text += dealer.Hand[^1].Value + " of "
                 + dealer.Hand[^1].Suit + "\n";
-            
+            RenderDealerImage();
             deck.RemoveAt(deck.Count - 1);
+        }
+        void RenderDealerImage()
+        {
+            if (pictureBox12.Image == null)
+            {
+                pictureBox12.Image = dealer.Hand[^1].Image;
+            }
+            else if (pictureBox13.Image == null)
+            {
+                pictureBox13.Image = dealer.Hand[^1].Image;
+            }
+            else if (pictureBox14.Image == null)
+            {
+                pictureBox14.Image = dealer.Hand[^1].Image;
+            }
+            else if (pictureBox15.Image == null)
+            {
+                pictureBox15.Image = dealer.Hand[^1].Image;
+            }
+            else if (pictureBox16.Image == null)
+            {
+                pictureBox16.Image = dealer.Hand[^1].Image;
+            }
+            else if (pictureBox17.Image == null)
+            {
+                pictureBox17.Image = dealer.Hand[^1].Image;
+            }
+            else if (pictureBox18.Image == null)
+            {
+                pictureBox18.Image = dealer.Hand[^1].Image;
+            }
+            else if (pictureBox19.Image == null)
+            {
+                pictureBox19.Image = dealer.Hand[^1].Image;
+            }
+            else if (pictureBox20.Image == null)
+            {
+                pictureBox20.Image = dealer.Hand[^1].Image;
+            }
         }
 
         void DealerDealHiddenCard()
@@ -90,7 +130,7 @@ namespace BlackJack
             Card tempCard = new Card(deck[^1].Suit, deck[^1].Value, deck[^1].Image);
             dealer.DrawCard(tempCard);
             dealerDisplay.Text += "unknown card";
-            
+            pictureBox11.Image = dealer.Hand[^1].Image;
             deck.RemoveAt(deck.Count - 1);
         }
 
@@ -164,12 +204,13 @@ namespace BlackJack
         }
 
         // ta ett till kort
-        private void btnHit_Click(object sender, EventArgs e)
+        private async void btnHit_Click(object sender, EventArgs e)
         {
             DealCard();
             player.CalculatePoints();
             pointsDisplay.Text = player.Points.ToString();
             eventDisplay.Text += "You draw a card..\n\n";
+            await Task.Delay(1500);
             CheckIfBlackjack();
 
             //spelaren förlorar automatiskt om poängen går över 21p
@@ -258,7 +299,6 @@ namespace BlackJack
             dealer.Points = 0;
             player.Points = 0;
         }
-
         void ResetImages()
         {
             pictureBox1.Image = null;
@@ -271,33 +311,17 @@ namespace BlackJack
             pictureBox8.Image = null; 
             pictureBox9.Image = null;
             pictureBox10.Image = null;
-            pictureBox11.Image = null;
-            pictureBox12.Image = null;
-            pictureBox13.Image = null;
-            pictureBox14.Image = null;
-            pictureBox15.Image = null;
-            pictureBox16.Image = null;
-            pictureBox17.Image = null;
-            pictureBox18.Image = null;
-            pictureBox19.Image = null;
             pictureBox20.Image = null;
+            pictureBox19.Image = null;
+            pictureBox18.Image = null;
+            pictureBox17.Image = null;
+            pictureBox16.Image = null;
+            pictureBox15.Image = null;
+            pictureBox14.Image = null;
+            pictureBox13.Image = null;
+            pictureBox12.Image = null;
+            pictureBox11.Image = null;
         }
-
-        //void ResetGame()
-        //{
-        //    DialogResult result = MessageBox.Show("Would yo like to play again?", "GAME OVER", MessageBoxButtons.YesNo);
-
-        //    if (result == DialogResult.Yes
-        //        && int.Parse(betInput.Text) <= player.Cash)
-        //    {
-        //        ResetTable();
-        //    }
-        //    else if (result == DialogResult.No)
-        //    {
-        //        Application.Exit();
-        //    }
-        //}
-
 
         void CheckIfBlackjack()
         {
@@ -323,6 +347,5 @@ namespace BlackJack
                 }
             }
         }
-
     }
 }
